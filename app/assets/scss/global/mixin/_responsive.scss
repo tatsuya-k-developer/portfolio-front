@@ -1,0 +1,39 @@
+/*------------------------------------------------------
+    Breakpoint　値はサイトに合わせて変更しましょう
+------------------------------------------------------*/
+
+@mixin bp($point) {
+    @if $point ==sp {
+
+        //スマホサイズ
+        @media screen and (max-width: 980px) {
+            @content;
+        }
+    }
+
+    @if $point ==tb {
+
+        //タブレットサイズ
+        @media screen and (min-width: 768px) and (max-width: 974px) {
+            @content;
+        }
+    }
+
+    @if $point ==pc {
+
+        //PCサイズ
+        @media screen and (min-width: 975px) {
+            @content;
+        }
+    }
+}
+
+// スマホの時以下コピペ
+// @include bp(sp) {}
+
+// タブレットの時以下コピペ
+// @include bp(tb) {}
+
+
+// PCの時以下コピペ
+// @include bp(pc) {}

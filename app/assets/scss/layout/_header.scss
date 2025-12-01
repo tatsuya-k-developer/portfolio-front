@@ -1,0 +1,160 @@
+/*------------------------------------------------------
+    header
+------------------------------------------------------*/
+@use "../global" as *;
+@use "../component" as *;
+
+// PC header css start-----------------------------
+
+
+.l-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    // border-bottom: 1px solid $gray_02
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: height 0.3s ease;
+    height: 50px;
+
+    &__inner {
+        height: 50px;
+
+        width: min(100% - 40px, 2000px);
+        margin: 0 auto;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        width: 30%;
+
+        .logo {
+            @include logo('header');
+        }
+
+        .line {
+            width: 1px;
+            height: 20px;
+            background-color: $gray_02;
+        }
+
+        .pan {
+
+            font-size: 15px;
+            font-weight: bold;
+            color: $blue;
+        }
+
+    }
+
+    .center {
+
+        .clock {
+            display: inline-flex;
+            align-items: center;
+            font-size: 14px;
+            letter-spacing: 1px;
+
+            .colon {
+                display: inline-block;
+                width: 1ch; // ✅ 固定幅のまま（横幅ブレ防止）
+                text-align: center;
+                opacity: 1; // ✅ 常に表示
+                animation: none; // ✅ 点滅なし
+            }
+        }
+    }
+
+    .right {
+        width: 30%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+
+        .icon {
+
+            border-radius: 8px; // ✅ 角丸（好きに調整）
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            &:hover {
+                background: #e5e5e5; // ✅ 薄いグレーの背景
+            }
+
+            img {
+                padding: 10px;
+            }
+
+        }
+    }
+}
+
+.l-header.is-expanded {
+    height: 400px;
+    background-color: $white;
+}
+
+.header-overlay {
+    position: fixed;
+    top: 0; // ← ここが重要！！ヘッダー下げてるとぼかしが見えない原因
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: rgba(255, 255, 255, 0.4);
+
+    backdrop-filter: blur(0px); // 初期はぼかさない
+    -webkit-backdrop-filter: blur(0px);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        backdrop-filter 0.3s ease,
+        -webkit-backdrop-filter 0.3s ease;
+
+    z-index: 50;
+}
+
+.header-overlay.active {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    pointer-events: auto;
+}
+
+
+
+
+@include bp(sp) {
+
+    .l-header__inner {
+        .left {
+            gap: 10px;
+        }
+
+        .right {
+            width: 100%;
+        }
+
+        .center {
+            display: none;
+        }
+
+    }
+
+
+}

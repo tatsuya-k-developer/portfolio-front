@@ -1,0 +1,8 @@
+// containerの指定　（内側）
+@use "../global" as *;
+@use "../component" as *;
+
+.l-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}

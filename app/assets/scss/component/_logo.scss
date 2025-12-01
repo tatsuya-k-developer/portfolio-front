@@ -1,0 +1,15 @@
+@use "../global" as *;
+
+@mixin logo($pattern) {
+    @if $pattern == 'login' {
+        font-family: "Black Ops One", system-ui;
+        font-size: 40px;
+        color: $black;
+    }
+
+    @if $pattern == 'header' {
+        font-family: "Black Ops One", system-ui;
+        font-size: 20px;
+        color: $black;
+    }
+}

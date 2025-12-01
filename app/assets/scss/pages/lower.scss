@@ -1,0 +1,15 @@
+@use "../global" as *;
+@use "../component" as *;
+@use "../object" as *;
+
+.maintitle {
+    @include ttl(main);
+}
+
+.subtitle {
+    @include ttl(sub);
+}
+
+.lower__mv {
+    @include mv(lower);
+}

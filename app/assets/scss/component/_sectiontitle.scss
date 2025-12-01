@@ -1,0 +1,14 @@
+@use "../global" as *;
+
+@mixin ttl($pattern) {
+    @if $pattern == main { //メインタイトル
+        font-size: 60px;
+        color: blue;
+    }
+
+    @if $pattern == sub { //サブタイトル
+        font-size: 40px;
+        color: red;
+    }
+
+}

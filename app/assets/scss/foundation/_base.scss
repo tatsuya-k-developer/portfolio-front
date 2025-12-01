@@ -1,0 +1,12 @@
+// Base 
+@use "../global" as *;
+
+body {
+    background-color: $bg_white;
+    color: $black;
+    font-family: $main_font;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+

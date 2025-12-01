@@ -1,0 +1,126 @@
+@use "../global" as *;
+
+.learning-record {
+  text-align: center;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  // タイトル
+  h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 18px;
+    color: $gray_01;
+    margin-bottom: 20px;
+  }
+
+  // 曜日ラベル
+  .week-labels {
+    display: grid;
+    grid-template-columns: repeat(7, 30px);
+    gap: 5px;
+    margin-bottom: 10px;
+    color: $gray_01;
+    font-size: 14px;
+  }
+
+  // カレンダー本体
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(7, 30px);
+    grid-template-rows: repeat(6, 30px);
+    gap: 5px;
+    margin-bottom: 20px;
+
+    .other-month {
+      opacity: 0.3;
+    }
+
+    .cell {
+      display: flex; // ← flexで中央寄せ
+      justify-content: center; // ← 横中央
+      align-items: center; // ← 縦中央
+      width: 100%; // グリッドの幅に合わせる
+      height: 100%; // グリッドの高さに合わせる
+      border-radius: 5px;
+      font-size: 10px;
+      font-weight: bold;
+      background: $gray_01;
+      color: rgba(255, 255, 255, 0.8);
+      position: relative;
+
+      // セル内の日付テキスト
+      .date {
+        pointer-events: none;
+        font-weight: 900;
+      }
+
+      // 学習量に応じた背景色
+      &.lv0 {
+        background: $accent_green_04;
+        color: $accent_green_01;
+      }
+
+      &.lv1 {
+        background: $accent_green_03;
+        color: $accent_green_01;
+      }
+
+      &.lv2 {
+        background: $accent_green_02;
+      }
+
+      &.lv3 {
+        background: $accent_green_01;
+      }
+
+    }
+  }
+
+  // 凡例
+  .legend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    color: $gray_01;
+    font-size: 12px;
+
+    .dots {
+      display: flex;
+      gap: 6px;
+
+      // 凡例セル
+      .cell {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+
+        &.lv0 {
+          background: $accent_green_04;
+        }
+
+        &.lv1 {
+          background: $accent_green_03;
+        }
+
+        &.lv2 {
+          background: $accent_green_02;
+        }
+
+        &.lv3 {
+          background: $accent_green_01;
+        }
+      }
+    }
+  }
+}

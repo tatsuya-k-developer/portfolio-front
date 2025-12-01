@@ -1,0 +1,22 @@
+@use "../global" as *;
+@use "../component" as *;
+
+@mixin mv($page) {
+    @if $page ==top {
+        //TOPページMV
+        background-image: url(../img/top_mv.webp);
+        background-size: cover;
+        background-position: center;
+        height: 400px; // メインビジュアルの高さを設定
+    }
+
+    @if $page ==lower {
+        //下層ページMV
+        background-image: url(../img/lower_mv.webp);
+        background-size: cover;
+        background-position: center;
+        height: 200px; // メインビジュアルの高さを設定
+
+    }
+
+}
