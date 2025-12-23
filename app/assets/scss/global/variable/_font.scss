@@ -3,11 +3,10 @@
 ------------------------------------------------------*/
 
 // japanese_font　日本語フォント
-$main_font: "Noto Sans JP", sans-serif;
+$main_font: var(--font-montserrat);
 
 // alpha_font　英数字フォント
 // $sub_font: ここにfont-familyを指定;
 
 // third_font 基本は上記の2つだけでいいと思われるが指定があれば使う
 // $third_font: ここにfont-familyを指定;
-

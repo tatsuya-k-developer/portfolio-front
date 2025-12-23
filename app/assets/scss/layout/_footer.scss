@@ -4,3 +4,78 @@
 
 @use "../global" as *;
 @use "../component" as *;
+
+.l-footer {
+
+    &__inner {
+        height: 70px;
+        width: min(100% - 40px, 2000px);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid $gray_01;
+    }
+
+
+    &__nav {
+        position: relative;
+        background-color: $gray_02;
+        padding: 6px;
+        border-radius: 50px;
+
+        &__list {
+            position: relative;
+            display: flex;
+            gap: 30px;
+        }
+
+        &__item {
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+
+            a {
+                display: block;
+                padding: 3px 14px;
+                font-size: 12px;
+                font-weight: bold;
+                color: $black;
+                white-space: nowrap;
+            }
+        }
+
+        /* =========================
+       背景マーカー（JS制御）
+       ========================= */
+        &__marker {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100px; // ← 横サイズ固定
+            height: 22px; // ← 高さ固定
+            background-color: $white;
+            border-radius: 50px;
+            z-index: 1;
+
+            transition:
+                transform 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+
+        }
+    }
+
+    &__small {
+        font-size: 12px;
+        font-weight: bold;
+        color: $gray_01;
+    }
+
+    &__sns {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+@include bp(sp) {}
