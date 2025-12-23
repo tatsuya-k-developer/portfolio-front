@@ -44,9 +44,11 @@ export default function Header() {
         <header className="l-header">
             <div className="l-header__inner">
                 <h1 className="l-header__logo">
-                    <Image src="/img/tklogo.svg" alt="logo" width={27} height={35} />
-                    <span className="l-header__logo__name">TATSUYA KAMIMAE .</span>
-                    <span className="l-header__logo__site">- portfolio site</span>
+                    <a href="/">
+                        <Image className="l-header__logo__img" src="/img/tklogo.svg" alt="logo" width={27} height={35} />
+                        <span className="l-header__logo__name">TATSUYA KAMIMAE .</span>
+                        <span className="l-header__logo__site">- portfolio site</span>
+                    </a>
                 </h1>
 
                 <nav className="l-header__nav">

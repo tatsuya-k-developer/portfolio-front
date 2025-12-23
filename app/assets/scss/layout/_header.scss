@@ -4,6 +4,32 @@
 @use "../global" as *;
 @use "../component" as *;
 
+@keyframes logo-shake {
+    0% {
+        transform: translateX(0) rotate(0);
+    }
+
+    20% {
+        transform: translateX(-2px) rotate(-1deg);
+    }
+
+    40% {
+        transform: translateX(2px) rotate(1deg);
+    }
+
+    60% {
+        transform: translateX(-1px) rotate(-0.5deg);
+    }
+
+    80% {
+        transform: translateX(1px) rotate(0.5deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(0);
+    }
+}
+
 .l-header {
     position: fixed;
     top: 20px;
@@ -27,10 +53,23 @@
     }
 
     &__logo {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        min-width: 200px;
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            min-width: 200px;
+        }
+
+        &__img {
+            cursor: pointer;
+
+            &:hover {
+                animation: logo-shake 0.4s ease-in-out;
+            }
+        }
+
+
 
         &__name {
             font-size: 14px;
